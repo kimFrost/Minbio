@@ -1,0 +1,207 @@
+.l-pages {
+	display: block;
+	width: 100%;
+	z-index: 20;
+	position: relative;
+	min-width: $contentWidth + ($gutterWidth * 2) ;
+	@include mediaQueries(mobile){
+		min-width: $contentWidth-mobile + ($gutterWidth * 2) ;
+	};
+	.l-pages-page {
+		position: relative;
+		background-color: #180508;
+		min-height: 900px;
+		&:after {
+			content: "";
+			display: block;
+			height: 2px;
+			position: absolute;
+			top: 10px;
+			background: #fff;
+			left: 50%;
+			margin-left: -(($contentWidth + $gutterWidth) / 2);
+			width: $contentWidth + $gutterWidth;
+			z-index: 10;
+			@include mediaQueries(mobile){
+				display: none;
+			};
+		}
+		&:first-child {
+			&:after {
+				display: none;
+			}
+		}
+		& + .l-pages-page {
+			@include mediaQueries(mobile){
+				.l-pages-pageSpotLeft,
+				.l-pages-pageSpotRight {
+					display: none;
+				}
+				.l-pages-pageContent {
+					top: -150px !important;
+					top: -150px !important;
+					margin-bottom: -150px;
+				}
+			};
+			.l-pages-pageBackground {
+				background-image: url(../img/bg_curtain2.jpg);
+				@include mediaQueries(mobile){
+					background-image: none;
+				}
+			}
+			& + .l-pages-page {
+				@include mediaQueries(mobile){
+					display: none;
+				}
+				.l-pages-pageBackground {
+					background-image: url(../img/bg_curtain3.jpg);
+					@include mediaQueries(mobile){
+						background-image: none;
+					}
+				}
+			}
+		}
+		@include mediaQueries(mobile){
+			background-color: #bf1936;
+			min-height: 600px;
+		}
+		.l-page-totop,
+		.l-page-readmore {
+			@include fontSize(epsilon,0.9);
+			position: absolute;
+			width: 135px;
+			height: 64px;
+			left: 50%;
+			bottom: 100px;
+			margin-left: -(135px / 2);
+			z-index: 70;
+			background-repeat: no-repeat;
+			background-position: center center;
+			color: #feec00;
+			text-align: center;
+			@include mediaQueries(mobile){
+				display: none;
+			}
+			.l-page-readmoreText {
+				margin-top: 10px;
+				font-family: $headlineFont;
+				font-weight: 300;
+			}
+		}
+		.l-page-totop {
+			background-image: url(../img/to_top.png);
+			.l-page-totopText {
+				margin-top: 22px;
+				font-family: $headlineFont;
+				font-weight: 300;
+			}
+		}
+		.l-page-readmore {
+			background-image: url(../img/read_more.png);
+		}
+
+		.l-pages-pageBackground {
+			@include fill();
+			background-repeat: no-repeat;
+			background-position: center top;
+			background-size: contain;
+			background-image: url(../img/bg_curtain.jpg);
+			z-index: 10;
+			@include mediaQueries(mobile){
+				background-image: url(../img/bg_curtain_red_s.jpg);
+			};
+		}
+		.l-pages-pageCC {
+			margin: 0 auto;
+			position: relative;
+			z-index: 20;
+			width: $contentWidth + $gutterWidth;
+			padding-left: $gutterWidth / 2;
+			padding-right: $gutterWidth / 2;
+			@include mediaQueries(mobile){
+				width: $contentWidth-mobile + $gutterWidth;
+			};
+			.l-pages-pageSpotLeft,
+			.l-pages-pageSpotRight {
+
+				width: 50%;
+				height: 373px;
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+			.l-pages-pageSpotLeft {
+				float: left;
+				background-image: url(../img/spot_left.png);
+				background-position: left top;
+				@include mediaQueries(mobile){
+					background-image: url(../img/mobile/spot_left.png);
+				};
+			}
+			.l-pages-pageSpotRight {
+				float: right;
+				background-image: url(../img/spot_right.png);
+				background-position: right top;
+				@include mediaQueries(mobile){
+					background-image: url(../img/mobile/spot_right.png);
+				};
+			}
+			.l-pages-pageLogos {
+				position: absolute;
+				top: 0;
+				width: 100%;
+				/*
+				&:before {
+					content: '';
+					display: inline-block;
+					height: 100%;
+					vertical-align: middle;
+					margin-right: -0.25em;
+				}
+				*/
+				.l-pages-pageBio {
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 50%;
+					margin-left: -196px;
+					height: 167px;
+					width: 392px;
+					background-repeat: no-repeat;
+					background-position: center top;
+					background-size: contain;
+					background-image: url(../img/language/dk/logo.png);
+					@include mediaQueries(mobile){
+						width: 60%;
+						margin-left: -30%;
+					};
+				}
+				.l-pages-pageNordisk {
+					display: block;
+					background-image: url(../img/language/dk/nordisk_logo.png);
+					background-position: center top;
+					background-repeat: no-repeat;
+					background-size: contain;
+					position: absolute;
+					height: 91px;
+					width: 79px;
+					left: 50%;
+					top: 40px;
+					margin-left: -39px + 245px;
+					@include mediaQueries(mobile){
+						//display: none;
+						margin-left: -(79px / 2);
+						top: 120px;
+					};
+				}
+			}
+			.l-pages-pageContent {
+				position: relative;
+				z-index: 50;
+				top: -170px;
+				@include mediaQueries(mobile){
+					top: -210px;
+				}
+			}
+		}
+	}
+}

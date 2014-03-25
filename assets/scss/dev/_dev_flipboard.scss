@@ -1,0 +1,58 @@
+
+.dv-flipboard {
+	@include fontSize(alpha);
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	width: 160px;
+	background-color: rgba(0,0,0,0.7);
+	color: #fff;
+	padding: 20px;
+	border: 1px solid rgba(0,0,0,0.9);
+	z-index: 95;
+	overflow: auto;
+	ul {
+		@include ulNav();
+		@include clearfix();
+		li {
+			clear: both;
+
+		}
+	}
+	& > ul {
+		width: 100%;
+		& > li {
+			width: 100%;
+			margin-bottom: 20px;
+			& > ul {
+				width: 100%;
+				& > li {
+					width: 100%;
+					text-align: center;
+					background-color: orangered;
+					padding: 5px;
+					&.isActive {
+						background-color: greenyellow;
+						color: #222;
+					}
+					input {
+						margin: 0;
+						display: block;
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+	&.isHidden {
+		display: none;
+	}
+	&.isClosed {
+		bottom: auto;
+		height: auto;
+		ul {
+			display: none;
+		}
+	}
+}

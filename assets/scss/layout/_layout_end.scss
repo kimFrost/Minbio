@@ -1,0 +1,42 @@
+.l-end {
+	@include clearfix();
+	position: relative;
+	top: 335px;
+	min-height: 500px;
+	@include mediaQueries(mobile){
+		top: 0px;
+	}
+	.l-end-devices,
+	.l-end-walter,
+	.l-end-text {
+		position: absolute;
+	}
+	.l-end-devices {
+		width: 442px;
+		height: 279px;
+		background-image: url(../img/language/dk/devices.png);
+		background-size: contain;
+		top: 0;
+		left: 50%;
+		margin-left: -(442px / 2);
+	}
+	.l-end-walter {
+		width: 313px;
+		height: 374px;
+		left: 0;
+		top: 180px;
+		background-image: url(../img/walter.png);
+		background-size: contain;
+	}
+	.l-end-text {
+		@include fontSize(eta,1.3);
+		right: 0;
+		left: 313px;
+		top: 279px;
+		text-align: center;
+		color: #fff;
+		padding: 30px 0;
+		font-family: $headlineFont2;
+		text-transform: uppercase;
+	}
+}

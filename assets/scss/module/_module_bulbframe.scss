@@ -1,0 +1,148 @@
+
+/* Bulbframe
+---------------------------------------------------------------*/
+
+// Mixin
+
+// Structure
+.bulbframe {
+	@include clearfix();
+	position: relative;
+	width: 100%;
+	min-height: 20px;
+	@include extendPoint("bulbframe");
+	.bulbframe-content {
+		width: 100%;
+		height: 100%;
+		padding: 20px;
+		z-index: 55;
+		float: left;
+		//background: red;
+		.bulbframe-innerContent {
+			position: relative;
+			background: #000;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			//padding: 40px;
+			img {
+				display: block;
+				margin: 0 auto;
+			}
+			ul {
+				@include ulNav();
+				li {
+					//float: none;
+					& + li,
+					& ~ li {
+						//display: none;
+					}
+				}
+			}
+		}
+	}
+	.bulbframe-label {
+		@include border-radius(0px,10px,10px,0px);
+		display: block;
+		position: absolute;
+		bottom: -34px;
+		height: 34px;
+		left: 20px;
+		right: 20px;
+		background: rgba(0,0,0,0.7);
+		z-index: 50;
+		color: #fff;
+		text-align: center;
+		line-height: 34px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-family: $headlineFont;
+		font-weight: 400;
+	}
+	.bulbframe-top,
+	.bulbframe-right,
+	.bulbframe-bottom,
+	.bulbframe-left {
+		@include fill();
+		background-color: #e4a96d;
+		z-index: 60;
+		min-height: 20px;
+		min-width: 20px;
+		background-image: url(../img/plank_texture.png);
+		background-repeat: repeat;
+		&:after {
+			@include fill();
+			content: "";
+			display: block;
+			//min-height: inherit;
+			//min-width: inherit;
+			background-image: url(../img/bulb.png);
+			//background-origin: ;
+			@include extendPoint("bulbframeBulbs");
+		}
+	}
+	.bulbframe-top {
+		@include border-radius(10px,0px,0px,10px);
+		bottom: auto;
+		border-top: 1px solid rgba(255,255,255,0.3);
+		border-bottom: 1px solid rgba(0,0,0,0.3);
+		&:after {
+			top: -10px;
+			background-repeat: repeat-x;
+			background-position: left center;
+		}
+		@include extendPoint("bulbframeTop");
+	}
+	.bulbframe-right {
+		@include border-radius(10px,10px,0px,0px);
+		left: auto;
+		border-left: 1px solid rgba(255,255,255,0.3);
+		border-right: 1px solid rgba(0,0,0,0.3);
+		z-index: 65;
+		&:after {
+			right: -10px;
+			background-repeat: repeat-y;
+			background-position: center top;
+		}
+		@include extendPoint("bulbframeRight");
+	}
+	.bulbframe-bottom {
+		@include border-radius(0px,10px,10px,0px);
+		top: auto;
+		border-top: 1px solid rgba(255,255,255,0.3);
+		border-bottom: 1px solid rgba(0,0,0,0.3);
+		&:after {
+			bottom: -10px;
+			background-repeat: repeat-x;
+			background-position: left center;
+		}
+		@include extendPoint("bulbframeBottom");
+	}
+	.bulbframe-left {
+		@include border-radius(0px,0px,10px,10px);
+		right: auto;
+		border-left: 1px solid rgba(255,255,255,0.3);
+		border-right: 1px solid rgba(0,0,0,0.3);
+		z-index: 65;
+		&:after {
+			left: -10px;
+			background-repeat: repeat-y;
+			background-position: center top;
+		}
+		@include extendPoint("bulbframeLeft");
+	}
+	.bulbframe-right,
+	.bulbframe-left {
+		& + .bulbframe-top,
+		& ~ .bulbframe-top,
+		& + .bulbframe-bottom,
+		& ~ .bulbframe-bottom {
+			@include border-radius(0px,0px,0px,0px);
+			left: 20px;
+			right: 20px;
+		}
+	}
+}
+
+

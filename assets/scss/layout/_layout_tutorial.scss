@@ -1,0 +1,43 @@
+.l-tutorial {
+	@include clearfix();
+	position: relative;
+	padding-bottom: 50px;
+	.l-tutorial-head {
+		min-width: 493px;
+		width: 100%;
+		float: left;
+		clear: both;
+		@include mediaQueries(mobile){
+			width: 100%;
+		}
+		.l-tutorial-headText {
+			@include fontSize(theta);
+			width: 100%;
+			float: left;
+			clear: both;
+			text-align: center;
+			color: #fff;
+			font-family: $headlineFont;
+			font-weight: 300;
+			text-transform: uppercase;
+			background-image: url(../img/language/dk/logo2.png);
+			height: 303px;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center top;
+			padding-top: 95px;
+			margin-bottom: 20px;
+		}
+	}
+	.l-tutorial-body {
+		width: 100%;
+		float: left;
+		clear: both;
+		//background: #000;
+		.l-tutorial-video {
+			width: 100%;
+			height: 550px;
+			background: #000;
+		}
+	}
+}

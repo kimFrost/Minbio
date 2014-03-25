@@ -1,0 +1,174 @@
+.l-brand {
+	@include clearfix();
+	.l-brand-info {
+		float: left;
+		width: 60%;
+		position: relative;
+		& + .l-brand-frame,
+		& ~ .l-brand-frame {
+			padding-left: 94px;
+		}
+		.l-brand-upper {
+			position: relative;
+			width: 80%;
+			margin: 0 auto;
+			z-index: 55;
+			%bulbframeTop {
+				@include box-shadow(0px -8px 15px rgba(0,0,0,0.3));
+			}
+			.l-brand-logo {
+				width: 100%;
+				min-height: 20px;
+				background-color: rgba(0,0,0,0.5);
+				img {
+					display: block;
+					margin: 0 auto;
+					padding: 10px;
+				}
+			}
+			.l-brand-teaser {
+				@include fontSize(epsilon,1.8);
+				width: 100%;
+				position: relative;
+				padding: 20px;
+				color: #000;
+				border-top: 1px solid #f2a244;
+				text-align: center;
+				font-family: $headlineFont;
+				font-weight: 700;
+				&:before,
+				&:after {
+					@include fill();
+					content: "";
+					display: block;
+					z-index: -1;
+				}
+				&:before {
+					right: 50%;
+					@include gradient(#e68613,#e68613,#f6a844,horizontal,0%,100%);
+				}
+				&:after {
+					left: 50%;
+					@include gradient(#e68613,#f6a844,#e68613,horizontal,0%,100%);
+				}
+				p {
+					margin-bottom: 0;
+				}
+			}
+			.l-brand-action {
+				width: 104%;
+				position: relative;
+				padding: 10px;
+				margin-left: -2%;
+				background-color: #efb90c;
+				text-align: center;
+				&:after {
+					content: "";
+					display: block;
+					width: 97px;
+					height: 86px;
+					position: absolute;
+					left: -(97px / 2);
+					top: -(86px / 2);
+					background-image: url(../img/language/dk/ticket.png);
+					background-repeat: no-repeat;
+					background-position: center center;
+				}
+				%btn {
+					width: 80%;
+					font-family: $headlineFont;
+					font-weight: 700;
+				}
+				& + .l-brand-action,
+				& ~ .l-brand-action {
+					@include gradient(#ec6a0b,#f18e0f,#ec6a0b,vertical,0%,100%);
+					&:after {
+						display: none;
+					}
+				}
+			}
+		}
+		.l-brand-lower {
+			@include gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7),rgba(0,0,0,0.2),vertical,50%,90%);
+			position: relative;
+			width: 100%;
+			top: -30px;
+			border-top: 1px solid #341818;
+			z-index: 50;
+			padding: 30px;
+			padding-top: 45px;
+			color: #fff;
+			.l-brand-lowerInfo {
+				@include fontSize(delta,1.8);
+				width: 100%;
+				text-align: center;
+				margin-bottom: 10px;
+				font-family: $headlineFont;
+				font-weight: 400;
+				@include mediaQueries(mobile){
+					@include fontSize(epsilon,1.6);
+				}
+			}
+			.l-brand-app {
+				width: 100%;
+				text-align: center;
+				margin-bottom: 30px;
+				%btn {
+					@include fontSize(alpha,1.1);
+					//font-family: $headlineFont2;
+					//font-weight: 400;
+					margin: 0;
+					min-width: 30%;
+					margin-left: 1%;
+					margin-right: 1%;
+					@include mediaQueries(mobile){
+						@include fontSize(gamma,1.1);
+						min-width: 45%;
+					}
+				}
+				@include mediaQueries(mobile){
+					margin-bottom: 40px;
+					.l-brand-appDesktop {
+						display: none;
+					}
+				}
+			}
+			.l-brand-lowerFooter {
+				@include fontSize(alpha,1.2);
+				width: 100%;
+				text-align: center;
+				margin-bottom: 10px;
+				@include mediaQueries(mobile){
+					@include fontSize(gamma,1.1);
+				}
+				a {
+					color: #e39311;
+				}
+			}
+		}
+	}
+	.l-brand-frame {
+		position: relative;
+		float: right;
+		width: 40%;
+		%bulbframe {
+			height: 360px;
+		}
+	}
+	@include mediaQueries(mobile){
+		.l-brand-info {
+			width: 100%;
+			margin-top: 50px;
+			& + .l-brand-frame,
+			& ~ .l-brand-frame {
+				padding-left: 0;
+			}
+		}
+		.l-brand-frame {
+			width: 94%;
+			//margin-left: 3%;
+			margin-right: 3%;
+			clear: both;
+		}
+	}
+}

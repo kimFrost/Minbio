@@ -1,0 +1,28 @@
+
+/* Global Variables */
+
+// Options booleans
+$useAdaptive: true; // Media Querie mixin will skip if this ain't true
+
+
+// Grid variables
+$contentWidth: 940px;
+$gridSize: 12;
+$gridSpacing: 20px; 
+$colomnWidth: $contentWidth / $gridSize;
+
+// Layout sizes
+$headerHeight: 60px;
+$stickyHeight: 60px;
+$gutterWidth: 20px;
+
+// Media Queries and Labels
+$mediaQueries: mobile 1px 759px, tablet 760px 959px, desktop 960px;
+
+// Media Queries Content Widths
+$contentWidth-mobile: 480px;
+$contentWidth-tablet: 740px;
+$contentWidth-desktop: 940px;
+
+
+
